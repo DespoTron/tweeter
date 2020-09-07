@@ -1,0 +1,17 @@
+nav {
+  display: flex;
+  background-color: #4056A1;
+  color: #FFFFFF;
+  height: 7.5rem; /* same as 120px */
+  width: 100%;
+  top: 0;
+  padding: 20px;
+}
+
+#navbar .main-title {
+  font-family: 'Bungee';
+  float: left;
+  font-size: 2rem;
+  line-height: 5rem;
+  margin-left: 1.5em;
+}
