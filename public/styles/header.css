@@ -1,0 +1,25 @@
+header {
+  display: flex;
+  height: 400px;
+  width: 100%;
+  background-image: url("/images/brick-wall-dark.png");
+  background-color: orange;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  color: #ffffff;
+}
+
+/* .profileHeader {
+  margin-top: 50px 0px 0px 0px;
+}
+
+.username {
+  color: white; 
+  border: solid thin white;
+  margin-bottom: 50px;
+}
+
+img {
+  margin-top: 50px;
+} */
