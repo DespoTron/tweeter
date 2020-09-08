@@ -25,3 +25,17 @@ body {
 /*
  * Additional CSS can be defined below or in other CSS files, as per instructions
  */
+
+.new-tweet {
+  width: 90%;
+  float: left;
+  font-size: 1.5rem;
+  margin-left: 1.5em;
+}
+
+textarea {
+  background: transparent;
+  border: 0;
+  border-bottom: 3px solid;
+  resize: none;
+}
