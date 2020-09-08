@@ -2,16 +2,28 @@ nav {
   display: flex;
   background-color: #4056A1;
   color: #FFFFFF;
-  height: 7.5rem; /* same as 120px */
+  height: 120px; /* same as 120px */
   width: 100%;
   top: 0;
   padding: 20px;
+  /* border: solid thin white; */
+  justify-content: space-between;
 }
 
-#navbar .main-title {
+.main-title {
   font-family: 'Bungee';
   float: left;
   font-size: 2rem;
   line-height: 5rem;
   margin-left: 1.5em;
+  /* border: solid thin white; */
+}
+
+.tweeterbutton {
+  /* border: solid thin white; */
+  align-content: flex-end;
+  float: right;
+  font-size: 1.5rem;
+  line-height: 5rem;
+  margin-right: 1.5em;
 }
