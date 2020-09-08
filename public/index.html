@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
+
     <!-- Meta Information -->
     <title>Tweeter - Home Page</title>
 
@@ -16,20 +17,53 @@
     <!-- Nav CSS -->
     <link rel="stylesheet" href="/styles/nav.css" type="text/css" />
 
+    <!-- Header CSS -->
+    <link rel="stylesheet" href="/styles/header.css" type="text/css" />    
+
+    <!-- New-Tweet CSS -->
+    <link rel="stylesheet" href="/styles/new-tweet.css" type="text/css" /> 
+
     <!-- External JS -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 
     <!-- App JS -->
     <script type="text/javascript" src="/scripts/client.js"></script>
+
   </head>
 
   <body>
     <!-- Top nav bar (fixed) -->
     <nav id="navbar">
       <span class="main-title">tweeter</span>
+      <span class="tweeterbutton"><b>Write</b> a new tweet</span>
     </nav>
+
+    <header>
+      <div class="profileHeader">
+          <img src="/images/profile-hex.png"> 
+      </div>
+      <br>
+      <div>
+          <h2 class="username"><span><b>Thai</b> Do</h2></span>
+      </div>
+    </header>
 
     <!-- Page-specific (main) content here -->
     <main class="container"></main>
+      <!-- Form to compose a new tweet -->
+      <section class="new-tweet"> 
+        <h2>Compose Tweet</h2>
+        <form action="/tweets" method="POST">
+          <label for="tweet-text">What are you humming about?</label>
+          <textarea name="text" id="tweet-text"></textarea>
+          <div class="button">
+            <button type="submit">Tweet</button>
+            <output name="counter" class="counter" for="tweet-text">140</output>
+          </div>
+        </form>
+      </section>
+    </main>
+
+    <script src="/scripts/composer-char-counter.js"></script>
   </body>
 </html>
