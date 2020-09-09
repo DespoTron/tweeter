@@ -19,7 +19,7 @@ body {
   background-color: #f4f1ec;
   font-size: 24px;
   font-family: 'Source Sans Pro', 'sans-serif';
-  padding: 5px 5px 0px 5px;
+  /* padding: 5px 5px 0px 5px; */
 }
 
 /*
@@ -38,4 +38,15 @@ textarea {
   border: 0;
   border-bottom: 3px solid;
   resize: none;
+  /* width: 100%;
+  max-width: 100%; */
 }
+
+.container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+
+
