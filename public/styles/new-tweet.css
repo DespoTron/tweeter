@@ -1,7 +1,7 @@
 .new-tweet {
   display: flex;
-  /* align-items: center; */
   flex-direction: column;
+  justify-content: center;
   /* border: solid thin white; */
 }
 
@@ -27,6 +27,7 @@ button {
   border-bottom: 5px solid  #545149;
   font-weight: 600; 
   line-height: 1;
+  width: 133%;
 }
   
 
@@ -43,5 +44,6 @@ form {
 .counter {
   font-family: 'Bungee', sans-serif;
   float: right;
+  padding-left: 109%;  
   /* border: solid thin white; */
 }

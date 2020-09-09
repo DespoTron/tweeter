@@ -1,13 +1,16 @@
-nav {
+#navbar {
   display: flex;
   background-color: #4056A1;
   color: #FFFFFF;
   height: 120px; /* same as 120px */
   width: 100%;
   top: 0;
+  left: 0;
   padding: 20px;
   /* border: solid thin white; */
   justify-content: space-between;
+  overflow: hidden;
+  position: sticky;
 }
 
 .main-title {
