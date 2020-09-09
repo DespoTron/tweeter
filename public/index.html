@@ -23,6 +23,9 @@
     <!-- New-Tweet CSS -->
     <link rel="stylesheet" href="/styles/new-tweet.css" type="text/css" /> 
 
+    <!-- Tweet-Feed CSS -->
+    <link rel="stylesheet" href="/styles/tweet-feed.css" type="text/css" />     
+
     <!-- External JS -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 
@@ -38,7 +41,7 @@
       <span class="tweeterbutton"><b>Write</b> a new tweet</span>
     </nav>
 
-    <header>
+    <header id="user-header">
       <div class="profileHeader">
           <img src="/images/profile-hex.png"> 
       </div>
@@ -49,18 +52,42 @@
     </header>
 
     <!-- Page-specific (main) content here -->
-    <main class="container"></main>
+    <main class="container">
       <!-- Form to compose a new tweet -->
       <section class="new-tweet"> 
         <h2>Compose Tweet</h2>
         <form action="/tweets" method="POST">
-          <label for="tweet-text">What are you humming about?</label>
-          <textarea name="text" id="tweet-text"></textarea>
+          <label for="tweet-text"></label>
+          <textarea name="text" id="tweet-text" placeholder="What are you humming about?"></textarea>
           <div class="button">
             <button type="submit">Tweet</button>
             <output name="counter" class="counter" for="tweet-text">140</output>
           </div>
         </form>
+      </section><br>
+      
+      <!-- Tweet Container -->
+      <section id="tweet-feed">
+        <article class="tweet-container">
+          <header>
+              <span>
+                <img class="tweet-l" src="/images/grandpa.png" width="50" height="50">
+                <span class="tweet-left">Newton</span>
+              </span>
+            <span class="tweet-r">@SirIsaac</span>
+          </header>
+          <p>LOREM IPSUM OMG KILL ME NOW!!!</p>
+          <div class="borderline"></div>
+          <footer>
+            <span class="tweet-bot" style="line-height: 3"><em>10 Days Ago</em></span>
+            <div class="tweet-icon">
+              <img src="/images/flag.png" width="20" height="20">
+              <img src="/images/repost.svg" width="20" height="20">
+              <img src="/images/heart.svg" width="20" height="20">
+            </div>
+          </footer>
+
+        </article>
       </section>
     </main>
 
