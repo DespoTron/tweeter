@@ -24,13 +24,15 @@
     <link rel="stylesheet" href="/styles/new-tweet.css" type="text/css" /> 
 
     <!-- Tweet-Feed CSS -->
-    <link rel="stylesheet" href="/styles/tweet-feed.css" type="text/css" />     
-
+    <link rel="stylesheet" href="/styles/tweet-feed.css" type="text/css" />    
+  
     <!-- External JS -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 
     <!-- App JS -->
     <script type="text/javascript" src="/scripts/client.js"></script>
+
+    <script src="https://rawgit.com/moment/moment/2.2.1/min/moment.min.js"></script> 
 
   </head>
 
@@ -56,7 +58,7 @@
       <!-- Form to compose a new tweet -->
       <section class="new-tweet"> 
         <h2>Compose Tweet</h2>
-        <form action="/tweets" method="POST">
+        <form action="/tweets" method="POST" id="new-post">
           <label for="tweet-text"></label>
           <textarea name="text" id="tweet-text" placeholder="What are you humming about?"></textarea>
           <div class="button">
@@ -66,28 +68,32 @@
         </form>
       </section><br>
       
-      <!-- Tweet Container -->
+      <!-- Old Tweets -->
       <section id="tweet-feed">
-        <article class="tweet-container">
+        <article class="tweet-info">
           <header>
-              <span>
-                <img class="tweet-l" src="/images/grandpa.png" width="50" height="50">
-                <span class="tweet-left">Newton</span>
-              </span>
-            <span class="tweet-r">@SirIsaac</span>
-          </header>
-          <p>LOREM IPSUM OMG KILL ME NOW!!!</p>
-          <div class="borderline"></div>
-          <footer>
-            <span class="tweet-bot" style="line-height: 3"><em>10 Days Ago</em></span>
-            <div class="tweet-icon">
-              <img src="/images/flag.png" width="20" height="20">
-              <img src="/images/repost.svg" width="20" height="20">
-              <img src="/images/heart.svg" width="20" height="20">
-            </div>
-          </footer>
+            <span>
+              <img class="tweet-l" src="/images/grandpa.png" width="50" height="50">
+              <span class="tweet-left">Newton</span>
+            </span>
+          <span class="tweet-r">@SirIsaac</span>
+        </header>
+        <p>LOREM IPSUM OMG KILL ME NOW!!!</p>
+        <div class="borderline"></div>
+        <footer>
+          <span class="tweet-bot" style="line-height: 3"><em>10 Days Ago</em></span>
+          <div class="tweet-icon">
+            <img src="/images/flag.png" width="20" height="20">
+            <img src="/images/repost.svg" width="20" height="20">
+            <img src="/images/heart.svg" width="20" height="20">
+          </div>
+        </footer>
+        </article>      
+      </section>
 
-        </article>
+      <!-- New Tweet Container -->
+      <section id='tweet-feed'>
+
       </section>
     </main>
 
