@@ -3,7 +3,7 @@
   flex-direction: column;
   /* justify-content: center; */
   /* border: solid thin white; */
-  width: 77%;
+  /* width: 77%; */
   margin-left: 45px;
   
 }
@@ -30,14 +30,14 @@ button {
   border-bottom: 5px solid  #545149;
   font-weight: 600; 
   line-height: 1;
-  width: 151%;
+  /* width: 157%; */
 }
   
 
 form {
   display: flex;
   flex-direction: column;
-  width: 75%;
+  /* width: 75%; */
   /* border: solid thin white; */
   /* justify-content: space-between; */
   /* margin-top: 5px; */
