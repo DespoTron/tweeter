@@ -34,11 +34,11 @@ $(document).ready(function () {
 
     let tweetForm = $('#new-post textarea').val();
     if (!tweetForm) {
-      //alert("You cannot tweet an empty tweet are you tweeterless??");
       return false;
     } else if (tweetForm.length > 140) {
-      //alert("Please tweet under 140 characters fellow tweeter");
-      return false;
+      return {
+        tooLong: true,
+      }
     }
     return true;
   }
@@ -79,9 +79,6 @@ $(document).ready(function () {
   const createTweetElement = function (tweet) {
     const userData = tweet;
     const timeLapse = moment(userData.created_at).fromNow();
-    console.log('userData.created_at:', userData.created_at)
-    console.log(moment(userData.created_at))
-    console.log(timeLapse);
     let $tweet = $(`
     <article class="tweet-info">
       <header>
@@ -91,15 +88,15 @@ $(document).ready(function () {
         </span>
         <span class="tweet-r">${userData.user.handle}</span>
       </header>
-      <p>${escape(userData.content.text)}</p>
+      <p class="msg">${escape(userData.content.text)}</p>
 
       <div class="borderline"><div>
-        <footer>
-          <span class="tweet-bot" style="line-height: 3"><em>${timeLapse}</em> ago</span>
+        <footer class="tweet__footer">
+          <span class="tweet-bot" ><em>${timeLapse}</em></span>
           <div class="tweet-icon">
-           <img src="/images/flag.png" width="20" height="20">
-           <img src="/images/repost.svg" width="20" height="20">
-           <img src="/images/heart.svg" width="20" height="20">            
+           <img class="flag-icon" src="/images/flag.png" width="20" height="20">
+           <img class="repost-icon" src="/images/repost.svg" width="20" height="20">
+           <img class="heart-icon" src="/images/heart.svg" width="20" height="20">            
           </div>
         </footer>
     </article>
@@ -116,40 +113,33 @@ $(document).ready(function () {
     }
   }
 
-  // renderTweets(data);  
-
   const $tweetPost = $('#new-post');
 
   $tweetPost.on('submit', function (event) {
     //prevent the default browser behaviour
     event.preventDefault();
     const formValidation = checkTweetForm()
-    // console.log('formValidation:', formValidation)
-
-    // console.log('checkTweetForm:', checkTweetForm)
 
     if (!formValidation) {
 
-      $('.new-tweet p').text('⚠️ ' + 'Are you being tweeterless!?!' + ' ⚠️').slideDown(600);
-      $('p').fadeOut(3000);
-      return false;
-    }
-    if (!formValidation.length > 140) {
-      $('.new-tweet p').text('⚠ ' + 'Please 140 tweeters or less' + ' ⚠️').slideDown(600);
-      $('p').fadeOut(3000);
-      return false;
+      $('.error-msg').text('⚠️ ' + 'Are you being tweeterless!?!' + ' ⚠️').slideDown(600);
+      $('.error-msg').fadeOut(3000);
+      return;
+    } else if (formValidation.tooLong) {
+      $('.error-msg').text('⚠ ' + 'Please 140 tweeters or less' + ' ⚠').slideDown(600);
+      $('.error-msg').fadeOut(3000);
+      return;
     }
 
     //serialize the form data for submission to the server
     const serializeData = $(this).serialize();
+    console.log('this:', this)
     // console.log(serializeData);
 
     //submit serialized data to the server via a Post request to /tweets
     $.post('http://localhost:8080/tweets/', serializeData)
       .then((response) => {
-        console.log(response);
         loadTweets();
-        // console.log('IS THIS STILL THIS', this)
         $(this).children('textarea').val('');
         $('.counter').text(140);
       })
