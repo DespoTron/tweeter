@@ -1,8 +1,11 @@
 .new-tweet {
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  /* justify-content: center; */
   /* border: solid thin white; */
+  width: 77%;
+  margin-left: 45px;
+  
 }
 
 button {
@@ -27,7 +30,7 @@ button {
   border-bottom: 5px solid  #545149;
   font-weight: 600; 
   line-height: 1;
-  width: 141%;
+  width: 151%;
 }
   
 
@@ -44,6 +47,33 @@ form {
 .counter {
   font-family: 'Bungee', sans-serif;
   float: right;
-  padding-left: 129%;  
+  padding-left: 117%;  
   /* border: solid thin white; */
+}
+
+.new-tweet p {
+  display: none;
+  margin: 1rem 0;
+  color: red;
+  font-size: 2rem;
+  border: solid thick red;
+  text-align: center;
+  margin-left: 50%;
+  background-color: grey;
+  border-radius: 11px;
+}
+
+#fetch-tweets:hover {
+  box-shadow: 5px 10px lightskyblue;
+}
+
+img {
+  padding-top: 50px;
+}
+
+/* Media queries */
+@media (min-width: 1024px) {
+  .tweet-text {
+    width: 100%;
+  }
 }
