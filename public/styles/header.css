@@ -10,3 +10,29 @@
   color: #ffffff;
 }
 
+@media (min-width: 1024px) {
+
+  .main-container {
+    display: flex;
+    justify-content: space-around;
+  }
+  #user-header {
+    width: 33%;
+    max-width: 31rem;
+    margin-right: 5%;
+    margin-top: 98px;
+    margin-left: 55px;
+  }
+  .container {
+    display: flex;
+    width: 100%;
+  }
+}
+
+/* @media (max-width: 768px) {
+  .main-container {
+   padding-top: 140px;
+   height: 500px;
+  }
+ } */
+ 
