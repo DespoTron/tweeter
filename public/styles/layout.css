@@ -15,10 +15,6 @@ html {
  */
 
 body {
-  /* display: flex;
-  justify-content: center;
-  flex-wrap: wrap;
-  align-items: center; */
   color: #545149;
   background-color: #f4f1ec;
   font-size: 24px;
@@ -35,8 +31,6 @@ textarea {
   border-bottom: 3px solid;
   resize: none;
   outline: none;
-  /* width: 100%;
-  max-width: 100%; */
 }
 
 .container {
@@ -44,17 +38,3 @@ textarea {
   flex-direction: column;
   justify-content: center;
 }
-
-@media (min-width: 1024px) {
-
-  }
-
-}
-
-@media (max-width: 768px) {
-
-}
-
-
-
-
