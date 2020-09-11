@@ -6,7 +6,7 @@
 $(document).ready(function () {
 
   // hide errors when input is detected
-  $('.new-tweet textarea').on("input", function() {
+  $('.new-tweet textarea').on("input", function () {
     $(this).parent().children("p").hide();
   })
 
@@ -43,7 +43,7 @@ $(document).ready(function () {
     return true;
   }
 
-  const escape =  function(str) {
+  const escape = function (str) {
     let div = document.createElement('div');
     div.appendChild(document.createTextNode(str));
     return div.innerHTML;
@@ -79,6 +79,9 @@ $(document).ready(function () {
   const createTweetElement = function (tweet) {
     const userData = tweet;
     const timeLapse = moment(userData.created_at).fromNow();
+    console.log('userData.created_at:', userData.created_at)
+    console.log(moment(userData.created_at))
+    console.log(timeLapse);
     let $tweet = $(`
     <article class="tweet-info">
       <header>
@@ -128,12 +131,12 @@ $(document).ready(function () {
     if (!formValidation) {
 
       $('.new-tweet p').text('⚠️ ' + 'Are you being tweeterless!?!' + ' ⚠️').slideDown(600);
-        $('p').fadeOut(3000);
+      $('p').fadeOut(3000);
       return false;
     }
     if (!formValidation.length > 140) {
       $('.new-tweet p').text('⚠ ' + 'Please 140 tweeters or less' + ' ⚠️').slideDown(600);
-        $('p').fadeOut(3000);
+      $('p').fadeOut(3000);
       return false;
     }
 
@@ -148,6 +151,7 @@ $(document).ready(function () {
         loadTweets();
         // console.log('IS THIS STILL THIS', this)
         $(this).children('textarea').val('');
+        $('.counter').text(140);
       })
   })
 
