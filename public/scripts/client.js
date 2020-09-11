@@ -5,16 +5,10 @@
  */
 $(document).ready(function () {
 
-  // check event for #new-post and validate with cb function
-  //   // $('#new-post textarea').on('submit', checkTweetForm); {
-  //   if (!checkTweetForm) {
-  //     alert("No Way TweeteRoonie!");
-  //     return false;
-  //   } else {
-  //     loadTweets();
-  //   }
-  // }
-
+  // hide errors when input is detected
+  $('.new-tweet textarea').on("input", function() {
+    $(this).parent().children("p").hide();
+  })
 
   loadTweets();
 
@@ -49,6 +43,11 @@ $(document).ready(function () {
     return true;
   }
 
+  const escape =  function(str) {
+    let div = document.createElement('div');
+    div.appendChild(document.createTextNode(str));
+    return div.innerHTML;
+  }
 
   // Fake data taken from initial-tweets.json
   const data = [
@@ -79,7 +78,7 @@ $(document).ready(function () {
 
   const createTweetElement = function (tweet) {
     const userData = tweet;
-    const timeLapse = moment(userData.created_at).startOf('day').fromNow();
+    const timeLapse = moment(userData.created_at).fromNow();
     let $tweet = $(`
     <article class="tweet-info">
       <header>
@@ -89,23 +88,24 @@ $(document).ready(function () {
         </span>
         <span class="tweet-r">${userData.user.handle}</span>
       </header>
-      <p>${userData.content.text}</p>
-      <div class="borderline">
+      <p>${escape(userData.content.text)}</p>
+
+      <div class="borderline"><div>
         <footer>
-          <span class="tweet-bot" style="line-height: 3"><em>${timeLapse}</em></span>
+          <span class="tweet-bot" style="line-height: 3"><em>${timeLapse}</em> ago</span>
           <div class="tweet-icon">
            <img src="/images/flag.png" width="20" height="20">
            <img src="/images/repost.svg" width="20" height="20">
            <img src="/images/heart.svg" width="20" height="20">            
           </div>
         </footer>
-      </div>
     </article>
     `)
     return $tweet;
   }
 
   const renderTweets = function (tweets) {
+    $('#tweet-feed').empty();
     for (const tweet of tweets) {
       const $tweet = createTweetElement(tweet);
 
@@ -126,9 +126,15 @@ $(document).ready(function () {
     // console.log('checkTweetForm:', checkTweetForm)
 
     if (!formValidation) {
-      console.log("WTF IS OGING ON")
-      alert("You cannot tweet an empty tweet or over 140 chars are you tweeterless??");
-      return;
+
+      $('.new-tweet p').text('⚠️ ' + 'Are you being tweeterless!?!' + ' ⚠️').slideDown(600);
+        $('p').fadeOut(3000);
+      return false;
+    }
+    if (!formValidation.length > 140) {
+      $('.new-tweet p').text('⚠ ' + 'Please 140 tweeters or less' + ' ⚠️').slideDown(600);
+        $('p').fadeOut(3000);
+      return false;
     }
 
     //serialize the form data for submission to the server
@@ -140,42 +146,9 @@ $(document).ready(function () {
       .then((response) => {
         console.log(response);
         loadTweets();
-
-        $(this).children('form').val('');
+        // console.log('IS THIS STILL THIS', this)
+        $(this).children('textarea').val('');
       })
   })
+
 });
-
-
-
-
-
-
-// const ERROR_MESSAGE = {
-//   too_long: 'Please try a shorter tweet',
-//   empty: 'Please type a tweet',
-// };
-
-// const validatingForm = () => {
-//   const textInput = $('#tweet-text').val();
-
-//   if (textInput.length > 140) {
-//     return { status: false, message: ERROR_MESSAGE.too_long };
-//   } else if (!textInput || textInput.length === 1) {
-//     // textInput.length to send error if enter is pressed with no message
-//     return {
-//       status: false,
-//       message: ERROR_MESSAGE.empty,
-//     };
-//   }
-//   return { status: true };
-// };
-
-
-// // this below is inside submit function
-// const formValidation = validatingForm();
-
-// if (!formValidation.status) {
-//   renderErrorMessage(formValidation.message);
-//   return;
-// }
