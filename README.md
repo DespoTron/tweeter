@@ -21,5 +21,5 @@ This repository is the starter code for the project: Students will fork and clon
 ## Screenshots
 
 !["Screenshot of tweet main page"](https://github.com/DespoTron/tweeter/blob/master/docs/MainPage.png)
-!["Screenshot of application of media query when screen is less than 800px"](!["Screenshot of tweet main page"](https://github.com/DespoTron/tweeter/blob/master/docs/MainPage.png))
+!["Screenshot of application of media query when screen is less than 800px"](https://github.com/DespoTron/tweeter/blob/master/docs/MainPage.png)
 !["Screenshot of error message"](https://github.com/DespoTron/tweeter/blob/master/docs/errormsg.png)
