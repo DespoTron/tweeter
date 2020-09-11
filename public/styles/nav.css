@@ -1,6 +1,8 @@
 #navbar {
   display: flex;
-  background-color: #4056A1;
+  /*background-color: #4056A1;*/
+  background-color: orange;
+  background-image: url("/images/brick-wall-dark.png");
   color: #FFFFFF;
   height: 120px; 
   width: 100%;
@@ -34,10 +36,9 @@
 }
 
 i {
-  /* display: flex; */
   color: orange;
-  /* margin-left: 1700px; */
   animation: updown 2s ease infinite;
+  margin-top: 7px;
 }
 
 .main-title {
@@ -59,6 +60,9 @@ i {
   margin-right: 1.5em; */
 }
 
-@media and (min-width: 1024px) {
-  width: 100%;
+@media screen and (min-width: 1024px) {
+  #navbar {
+    width: 100%;
+    background-color: #4056A1;
+  }
 }
