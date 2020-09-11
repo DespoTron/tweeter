@@ -1,73 +1,89 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
 
-    <!-- Meta Information -->
-    <title>Tweeter - Home Page</title>
+<head>
 
-    <!-- Bungee and Source Sans Pro -->
-    <link href="https://fonts.googleapis.com/css2?family=Bungee&family=Source+Sans+Pro:ital,wght@0,300;0,600;1,300;1,600&display=swap" rel="stylesheet">
+  <!-- Meta Information -->
+  <title>Tweeter - Home Page</title>
 
-    <!-- External CSS -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css" type="text/css" />
+  <!-- Bungee and Source Sans Pro -->
+  <link
+    href="https://fonts.googleapis.com/css2?family=Bungee&family=Source+Sans+Pro:ital,wght@0,300;0,600;1,300;1,600&display=swap"
+    rel="stylesheet">
 
-    <!-- App CSS -->
-    <link rel="stylesheet" href="/styles/layout.css" type="text/css" />
+  <!-- External CSS -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css"
+    type="text/css" />
 
-    <!-- Nav CSS -->
-    <link rel="stylesheet" href="/styles/nav.css" type="text/css" />
+  <!-- App CSS -->
+  <link rel="stylesheet" href="/styles/layout.css" type="text/css" />
 
-    <!-- Header CSS -->
-    <link rel="stylesheet" href="/styles/header.css" type="text/css" />    
+  <!-- Nav CSS -->
+  <link rel="stylesheet" href="/styles/nav.css" type="text/css" />
 
-    <!-- New-Tweet CSS -->
-    <link rel="stylesheet" href="/styles/new-tweet.css" type="text/css" /> 
+  <!-- Header CSS -->
+  <link rel="stylesheet" href="/styles/header.css" type="text/css" />
 
-    <!-- Tweet-Feed CSS -->
-    <link rel="stylesheet" href="/styles/tweet-feed.css" type="text/css" />    
-  
-    <!-- External JS -->
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+  <!-- New-Tweet CSS -->
+  <link rel="stylesheet" href="/styles/new-tweet.css" type="text/css" />
 
-    <!-- App JS -->
-    <script type="text/javascript" src="/scripts/client.js"></script>
+  <!-- Tweet-Feed CSS -->
+  <link rel="stylesheet" href="/styles/tweet-feed.css" type="text/css" />
 
-    <script src="https://rawgit.com/moment/moment/2.2.1/min/moment.min.js"></script> 
+  <!-- Fontawesome -->
+  <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css"
+    integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous" />
 
-  </head>
+  <!-- External JS -->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 
-  <body>
-    <!-- Top nav bar (fixed) -->
-    <nav id="navbar">
+  <!-- App JS -->
+  <script type="text/javascript" src="/scripts/client.js"></script>
+
+  <script src="https://rawgit.com/moment/moment/2.2.1/min/moment.min.js"></script>
+
+  <!-- Disable viewport zooming -->
+  <meta name='viewport' content='width=device-width, initial-scale=1.0, maximum-scale=1.0' />
+</head>
+
+<body>
+  <!-- Top nav bar (fixed) -->
+  <nav id="navbar">
+    <div>
       <span class="main-title">tweeter</span>
+    </div>
+    <div class="nav-side">
       <span class="tweeterbutton"><b>Write</b> a new tweet</span>
-    </nav>
-
+      <i class="fas fa-angle-double-down"></i>
+    </div>
+  </nav>
+  <!-- Seperate  -->
+  <div class="main-container">
     <header id="user-header">
       <div class="profileHeader">
-          <img src="/images/profile-hex.png"> 
+        <img src="/images/profile-hex.png">
       </div>
-      <br>
       <div>
-          <h2 class="username"><span><b>Thai</b> Do</h2></span>
+        <h2 class="username"><span><strong>Thai</strong> Do</span></h2>
       </div>
     </header>
 
     <!-- Page-specific (main) content here -->
     <main class="container">
       <!-- Form to compose a new tweet -->
-      <section class="new-tweet"> 
+      <section class="new-tweet">
         <h2>Compose Tweet</h2>
         <form action="/tweets" method="POST" id="new-post">
           <label for="tweet-text"></label>
-          <textarea name="text" id="tweet-text" placeholder="What are you humming about?"></textarea>
+          <textarea name="text" id="tweet-text" class="error" placeholder="What are you humming about?"></textarea>
+          <p></p>
           <div class="button">
             <button type="submit" id="fetch-tweets">Tweet</button>
             <output name="counter" class="counter" for="tweet-text">140</output>
           </div>
         </form>
-      </section><br>
-      
+      </section>
+
       <!-- Old Tweets -->
       <section id="tweet-feed">
         <article class="tweet-info">
@@ -76,19 +92,19 @@
               <img class="tweet-l" src="/images/grandpa.png" width="50" height="50">
               <span class="tweet-left">Newton</span>
             </span>
-          <span class="tweet-r">@SirIsaac</span>
-        </header>
-        <p>LOREM IPSUM OMG KILL ME NOW!!!</p>
-        <div class="borderline"></div>
-        <footer>
-          <span class="tweet-bot" style="line-height: 3"><em>10 Days Ago</em></span>
-          <div class="tweet-icon">
-            <img src="/images/flag.png" width="20" height="20">
-            <img src="/images/repost.svg" width="20" height="20">
-            <img src="/images/heart.svg" width="20" height="20">
-          </div>
-        </footer>
-        </article>      
+            <span class="tweet-r">@SirIsaac</span>
+          </header>
+          <p>LOREM IPSUM OMG KILL ME NOW!!!</p>
+          <div class="borderline"></div>
+          <footer>
+            <span class="tweet-bot" style="line-height: 3"><em>10 Days Ago</em></span>
+            <div class="tweet-icon">
+              <img src="/images/flag.png" width="20" height="20">
+              <img src="/images/repost.svg" width="20" height="20">
+              <img src="/images/heart.svg" width="20" height="20">
+            </div>
+          </footer>
+        </article>
       </section>
 
       <!-- New Tweet Container -->
@@ -96,7 +112,8 @@
 
       </section>
     </main>
+  </div>
+  <script src="/scripts/composer-char-counter.js"></script>
+</body>
 
-    <script src="/scripts/composer-char-counter.js"></script>
-  </body>
 </html>
